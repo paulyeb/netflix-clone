@@ -29,6 +29,7 @@ body h2 {
 .row__posterLarge {
   width: 250%;
   max-height: 250px;
+  cursor: pointer;
 }
 
 .row__posterLarge:hover {
