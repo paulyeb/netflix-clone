@@ -15,6 +15,7 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
         async function fetchData () {
             const request = await axios.get(fetchUrl);
             setMovies(request.data.results);
+            console.log(request.data.results);
             return request;
         }
 
@@ -56,7 +57,7 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
                         onClick={() => handleClick(movie)}
                         className={`row__poster ${isLargeRow && "row__posterLarge"}`} 
                         src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} 
-                        alt="movie.name" 
+                        alt={movie.name} 
                     />
                 ))}
             </div>
