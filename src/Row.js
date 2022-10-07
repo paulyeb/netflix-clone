@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
-import axios from "./axios";
+import instance from "./axios";
 import "./Row.css";
 
 const base_url = "https://image.tmdb.org/t/p/original";
@@ -9,11 +9,11 @@ const base_url = "https://image.tmdb.org/t/p/original";
 const Row = ({title, fetchUrl, isLargeRow}) => {
     const [movies, setMovies] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState('');
-    // A snippet of code which runs based on a specific condition/variable
+    // A snippet of code which runs based on a specific condition/variable;
 
     useEffect(() => {
         async function fetchData () {
-            const request = await axios.get(fetchUrl);
+            const request = await instance.get(fetchUrl);
             setMovies(request.data.results);
             console.log(request.data.results);
             return request;
